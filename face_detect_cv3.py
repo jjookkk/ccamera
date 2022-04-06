@@ -1,5 +1,6 @@
 import cv2
 import sys
+import os
 
 # Get user supplied values
 imagePath = sys.argv[1]
@@ -27,5 +28,6 @@ print("yes,! found {0} faces!\n happy happy happy".format(len(faces)))
 for (x, y, w, h) in faces:
     cv2.rectangle(image, (x, y), (x+w, y+h), (0, 255, 0), 2)
 
+os.system("rm detected2.jpg")
 cv2.imwrite("detected2.jpg", image)
 cv2.waitKey(0)

@@ -24,11 +24,12 @@ faces = faceCascade.detectMultiScale(
     #flags = cv2.CV_HAAR_SCALE_IMAGE
 )
 
-print("yes,! found {0} faces!\n happy happy happy".format(len(faces)))
+print("yes! found {0} faces!\n happy happy happy".format(len(faces)))
 
 # Draw a rectangle around the faces
 for (x, y, w, h) in faces:
     cv2.rectangle(image, (x, y), (x+w, y+h), (0, 255, 0), 2)
+    print("draw a rectangle hahah")
 
 if os.system("rm -rf detected.jpg"):
     print("erase origin jpg")

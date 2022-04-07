@@ -2,8 +2,20 @@ import cv2
 import sys
 import os
 
+import pyautogui,time
+import winsound as sd
+
+def beepsound():
+    fr = 2000    # range : 37 ~ 32767
+    du = 1000     # 1000 ms ==1second
+    sd.Beep(fr, du) # winsound.Beep(frequency, duration)
+
+os.system("raspistill -o 1.jpg")
+beepsound()
+time.sleep(2)
+
 # Get user supplied values
-imagePath = sys.argv[1]
+imagePath = "1.jpg"
 cascPath = "haarcascade_frontalface_default.xml"
 
 # Create the haar cascade
@@ -28,6 +40,7 @@ print("yes,! found {0} faces!\n happy happy happy".format(len(faces)))
 for (x, y, w, h) in faces:
     cv2.rectangle(image, (x, y), (x+w, y+h), (0, 255, 0), 2)
 
+<<<<<<< HEAD
 os.system("rm detected2.jpg") = true
 
 if os.system("rm detected2.jpg"):
@@ -36,4 +49,8 @@ else:
     print("failed")
 
 cv2.imwrite("detected2.jpg", image)
+=======
+#os.remove("detected2.jpg")
+cv2.imwrite("1detect.jpg", image)
+>>>>>>> 6b60282a8b88306c0e62cd36ea5a1e7aa714ba26
 cv2.waitKey(0)

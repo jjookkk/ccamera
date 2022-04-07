@@ -2,15 +2,7 @@ import cv2
 import sys
 import os
 
-#import winsound as sd
-"""def beepsound():
-    fr = 2000    # range : 37 ~ 32767
-    du = 1000     # 1000 ms ==1second
-    sd.Beep(fr, du) # winsound.Beep(frequency, duration)
-"""
-os.system("sudo raspistill -o 1.jpg")
-#beepsound()
-#time.sleep(2)
+os.system("sudo raspistill -o 1.jpg -w 500 -h 500 -br 50")
 
 # Get user supplied values
 imagePath = "1.jpg"
@@ -38,7 +30,7 @@ print("yes,! found {0} faces!\n happy happy happy".format(len(faces)))
 for (x, y, w, h) in faces:
     cv2.rectangle(image, (x, y), (x+w, y+h), (0, 255, 0), 2)
 
-if os.system("rm detected.jpg"):
+if os.system("rm -rf detected.jpg"):
     print("erase origin jpg")
 else: 
     print("failed")
